@@ -1,0 +1,111 @@
+
+Documentación POO en PHP
+========================
+
+1. Definición
+La Programación Orientada a Objetos (POO) en PHP es un paradigma que organiza el código en estructuras llamadas
+clases, las cuales se pueden instanciar como objetos. Este enfoque favorece la reutilización de código, 
+la escalabilidad y el mantenimiento.
+
+2. Elementos principales
+- Clase: Estructura que define un conjunto de propiedades (atributos) y métodos (funciones).
+  Ejemplo:
+    class Persona {
+        public $nombre;
+        public function saludar() {
+            echo "Hola";
+        }
+    }
+
+- Objeto: Instancia de una clase.
+  Ejemplo:
+    $p = new Persona();
+
+- Propiedades: Variables declaradas dentro de una clase.
+- Métodos: Funciones declaradas dentro de una clase.
+- Constructor (__construct): Método especial que se ejecuta al crear un objeto.
+- Destructor (__destruct): Método especial que se ejecuta al destruir un objeto.
+
+3. Modificadores de acceso
+- public: Accesible desde cualquier lugar.
+- protected: Accesible solo desde la clase y sus clases hijas.
+- private: Accesible solo desde la clase que lo declara.
+
+4. Encapsulación
+Controla el acceso a las propiedades y métodos, protegiendo el estado interno de un objeto.
+Se implementa usando modificadores de acceso y métodos getters y setters.
+
+5. Herencia
+Permite que una clase (hija) herede propiedades y métodos de otra clase (padre) usando 'extends'.
+Ejemplo:
+    class Estudiante extends Persona {
+        public $carrera;
+    }
+
+6. Polimorfismo
+Capacidad de redefinir métodos heredados para cambiar su comportamiento.
+Ejemplo:
+    class Persona {
+        public function saludar() { echo "Hola"; }
+    }
+    class Estudiante extends Persona {
+        public function saludar() { echo "Hola, soy estudiante"; }
+    }
+
+7. Abstracción
+- Clases abstractas: No se pueden instanciar, sirven como plantilla para otras clases.
+- Métodos abstractos: Definidos sin cuerpo, obligan a las clases hijas a implementarlos.
+Ejemplo:
+    abstract class Figura {
+        abstract public function calcularArea();
+    }
+
+8. Interfaces
+Definen un contrato que las clases deben cumplir implementando todos sus métodos.
+Ejemplo:
+    interface Mostrable {
+        public function mostrar();
+    }
+
+9. Métodos y propiedades estáticas
+Pertenecen a la clase, no a la instancia. Se accede con Clase::metodo() o Clase::$propiedad.
+Ejemplo:
+    class Contador {
+        public static $cuenta = 0;
+        public static function incrementar() {
+            self::$cuenta++;
+        }
+    }
+
+10. Traits
+Permiten reutilizar código en varias clases sin herencia múltiple.
+Los traits son como “módulos de código” que puedes incluir en varias clases sin necesidad de herencia múltiple.
+Ejemplo:
+    trait Logger {
+        public function log($msg) { echo $msg; }
+    }
+    class Usuario {
+        use Logger;
+    }
+
+11. Métodos mágicos más comunes
+- __construct(): Constructor.
+- __destruct(): Destructor.
+- __toString(): Convierte un objeto en cadena.
+- __get() / __set(): Acceso dinámico a propiedades.
+- __call(): Manejo de llamadas a métodos inexistentes.
+- __clone(): Personaliza la clonación de un objeto.
+
+12. Autoload
+Uso de spl_autoload_register() para cargar clases automáticamente cuando se necesiten.
+Ejemplo:
+    spl_autoload_register(function($clase) {
+        include $clase . ".php";
+    });
+
+13. Buenas prácticas
+- Usar nombres descriptivos y coherentes.
+- Seguir PSR (PHP Standards Recommendations).
+- Aplicar principios SOLID.
+- Separar responsabilidades en clases diferentes.
+- Evitar mezclar lógica de negocio con presentación.

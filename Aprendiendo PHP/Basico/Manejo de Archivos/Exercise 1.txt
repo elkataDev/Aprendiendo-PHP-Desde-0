@@ -1,0 +1,3 @@
+Este es un archivo nuevo creado con PHP.
+Contiene texto de ejemplo.
+Mi nombre es ElKataDev

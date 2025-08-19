@@ -1,0 +1,125 @@
+DOCUMENTACIÓN COMPLETA DE FUNCIONES DE ARRAY EN PHP
+
+-------------------------------
+FUNCIONES BÁSICAS
+-------------------------------
+
+1. array_push()
+   Añade uno o más elementos al final de un array.
+
+2. array_pop()
+   Elimina el último elemento de un array.
+
+3. array_shift()
+   Elimina el primer elemento de un array.
+
+4. array_unshift()
+   Añade uno o más elementos al principio de un array.
+
+5. array_merge()
+   Combina dos o más arrays.
+
+6. array_merge_recursive()
+   Igual que array_merge, pero combina arrays anidados en lugar de sobrescribirlos.
+
+7. array_replace()
+   Reemplaza valores en el primer array con valores del segundo.
+
+8. array_replace_recursive()
+   Reemplaza valores recursivamente (en arrays multidimensionales).
+
+9. array_chunk()
+   Divide un array en fragmentos de un tamaño específico.
+
+10. array_slice()
+    Extrae una parte del array.
+
+11. array_splice()
+    Elimina una parte del array y puede reemplazarla.
+
+12. array_map()
+    Aplica una función a cada elemento del array y devuelve un nuevo array.
+
+13. array_filter()
+    Filtra los elementos de un array usando una función callback.
+
+14. array_reduce()
+    Reduce un array a un solo valor usando una función de acumulación.
+
+15. array_keys()
+    Devuelve todas las claves de un array.
+
+16. array_values()
+    Devuelve todos los valores de un array.
+
+17. array_key_exists()
+    Verifica si una clave existe en un array.
+
+18. isset()
+    Verifica si una clave está definida y no es null.
+
+19. array_combine()
+    Combina dos arrays: uno como claves y otro como valores.
+
+20. array_reverse()
+    Invierte el orden de los elementos de un array.
+
+21. array_unique()
+    Elimina valores duplicados del array.
+
+22. array_search()
+    Devuelve la clave del valor si se encuentra.
+
+23. in_array()
+    Verifica si un valor existe en un array.
+
+24. array_intersect()
+    Devuelve los valores comunes entre arrays.
+
+25. array_diff()
+    Devuelve los valores del primer array que no están en el segundo.
+
+26. array_fill()
+    Rellena un array con valores.
+
+27. array_pad()
+    Rellena el array hasta una longitud específica.
+
+28. array_walk()
+    Aplica una función a cada elemento del array.
+
+29. sort()
+    Ordena un array en orden ascendente.
+
+30. rsort()
+    Ordena un array en orden descendente.
+
+31. asort()
+    Ordena un array manteniendo la asociación de índices (por valores).
+
+32. arsort()
+    Ordena un array en orden descendente por valores, preservando claves.
+
+33. ksort()
+    Ordena un array por sus claves.
+
+34. krsort()
+    Ordena un array por sus claves en orden descendente.
+
+35. implode()
+    Convierte un array en un string con un separador.
+
+36. explode()
+    Divide un string en un array usando un delimitador.
+
+37. array_key_first()
+    Devuelve la primera clave del array.
+
+38. array_key_last()
+    Devuelve la última clave del array.
+
+39. count()
+    Devuelve el número de elementos en un array.
+
+40. unset()
+    Elimina una entrada del array.

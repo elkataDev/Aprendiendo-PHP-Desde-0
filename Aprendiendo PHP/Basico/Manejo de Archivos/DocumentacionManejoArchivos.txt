@@ -1,0 +1,89 @@
+
+Documentación: Manejo de Archivos en PHP
+========================================
+
+1. Abrir y cerrar archivos
+- fopen(): Abre un archivo. Puede ser para lectura ('r'), escritura ('w'), anexar ('a') o lectura/escritura ('r+').
+- fclose(): Cierra un archivo abierto.
+
+Ejemplo:
+    $archivo = fopen("archivo.txt", "r");
+    fclose($archivo);
+
+2. Leer archivos
+- fgets(): Lee una línea del archivo.
+- fread(): Lee una cantidad específica de bytes.
+- file(): Lee todo el archivo en un arreglo donde cada línea es un elemento.
+- file_get_contents(): Lee todo el archivo en una cadena.
+
+Ejemplo:
+    $contenido = file_get_contents("archivo.txt");
+    echo $contenido;
+
+3. Escribir en archivos
+- fwrite(): Escribe datos en un archivo abierto.
+- file_put_contents(): Escribe directamente en un archivo, creando o reemplazando su contenido.
+
+Ejemplo:
+    $archivo = fopen("archivo.txt", "w");
+    fwrite($archivo, "Hola mundo
+");
+    fclose($archivo);
+
+    // Con file_put_contents
+    file_put_contents("archivo.txt", "Hola desde file_put_contents
+");
+
+4. Modo de apertura de archivos
+- 'r': Leer solo, apunta al inicio.
+- 'r+': Leer y escribir, apunta al inicio.
+- 'w': Escribir solo, crea el archivo o lo vacía si existe.
+- 'w+': Leer y escribir, crea o vacía.
+- 'a': Escribir al final, crea si no existe.
+- 'a+': Leer y escribir al final, crea si no existe.
+
+5. Comprobaciones y manejo de errores
+- file_exists(): Verifica si un archivo existe.
+- is_readable(): Verifica si se puede leer.
+- is_writable(): Verifica si se puede escribir.
+
+Ejemplo:
+    if (file_exists("archivo.txt")) {
+        echo "El archivo existe";
+    }
+
+6. Eliminar y renombrar archivos
+- unlink(): Elimina un archivo.
+- rename(): Cambia el nombre de un archivo.
+
+Ejemplo:
+    unlink("archivo.txt"); // Elimina el archivo
+    rename("viejo.txt", "nuevo.txt"); // Renombra el archivo
+
+7. Directorios
+- mkdir(): Crear directorios.
+- rmdir(): Eliminar directorios vacíos.
+- scandir(): Lista archivos y carpetas en un directorio.
+
+Ejemplo:
+    mkdir("nueva_carpeta");
+    $archivos = scandir("nueva_carpeta");
+
+8. Lectura y escritura con bucles
+- Ideal para archivos grandes.
+Ejemplo:
+    $archivo = fopen("archivo.txt", "r");
+    while(!feof($archivo)) {
+        $linea = fgets($archivo);
+        echo $linea . "<br>";
+    }
+    fclose($archivo);
+
+9. Permisos
+- PHP requiere permisos adecuados del sistema operativo para leer/escribir archivos y carpetas.
+
+10. Buenas prácticas
+- Siempre cerrar archivos abiertos.
+- Validar existencia y permisos antes de leer o escribir.
+- Usar rutas relativas o absolutas con cuidado.
+- Manejar errores con try/catch o verificaciones previas.

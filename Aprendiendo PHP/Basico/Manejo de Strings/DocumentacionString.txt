@@ -1,0 +1,73 @@
+
+Documentación de Métodos de Strings en PHP
+==========================================
+
+A continuación se listan funciones comunes para manipulación de strings en PHP, con una breve descripción:
+
+1. **strlen($str)** – Devuelve la longitud de una cadena.
+
+2. **strtoupper($str)** – Convierte una cadena a mayúsculas.
+
+3. **strtolower($str)** – Convierte una cadena a minúsculas.
+
+4. **ucfirst($str)** – Convierte el primer carácter de una cadena a mayúscula.
+
+5. **ucwords($str)** – Convierte el primer carácter de cada palabra a mayúscula.
+
+6. **trim($str)** – Elimina espacios (u otros caracteres) al inicio y al final de la cadena.
+
+7. **ltrim($str)** – Elimina espacios al inicio de la cadena.
+
+8. **rtrim($str)** – Elimina espacios al final de la cadena.
+
+9. **str_replace($buscar, $reemplazo, $str)** – Reemplaza texto dentro de una cadena.
+
+10. **str_ireplace($buscar, $reemplazo, $str)** – Reemplaza texto sin distinguir mayúsculas.
+
+11. **strpos($str, $buscar)** – Encuentra la posición de la primera ocurrencia de un texto.
+
+12. **stripos($str, $buscar)** – Igual a strpos pero sin distinguir mayúsculas.
+
+13. **strrpos($str, $buscar)** – Posición de la última ocurrencia.
+
+14. **substr($str, $inicio, $longitud?)** – Extrae una parte de la cadena.
+
+15. **str_split($str, $longitud?)** – Divide una cadena en un array.
+
+16. **explode($separador, $str)** – Divide una cadena en partes usando un separador.
+
+17. **implode($separador, $array)** – Une elementos de un array en una cadena.
+
+18. **strrev($str)** – Invierte una cadena.
+
+19. **strcmp($str1, $str2)** – Compara dos cadenas (sensitivo a mayúsculas).
+
+20. **strcasecmp($str1, $str2)** – Compara sin sensibilidad a mayúsculas.
+
+21. **strncmp($str1, $str2, $length)** – Compara los primeros $length caracteres.
+
+22. **substr_replace($str, $reemplazo, $inicio, $longitud?)** – Reemplaza parte de una cadena.
+
+23. **number_format($numero, $decimales, $decimal_sep, $mil_sep)** – Da formato numérico como texto.
+
+24. **sprintf($formato, ...args)** – Devuelve un string formateado.
+
+25. **printf($formato, ...args)** – Imprime un string formateado.
+
+26. **nl2br($str)** – Convierte saltos de línea en etiquetas <br>.
+
+27. **htmlspecialchars($str)** – Convierte caracteres especiales HTML.
+
+28. **htmlentities($str)** – Convierte todos los caracteres aplicables a entidades HTML.
+
+29. **str_contains($str, $buscar)** – Verifica si la cadena contiene un texto (PHP 8+).
+
+30. **str_starts_with($str, $prefijo)** – Verifica si comienza con un texto (PHP 8+).
+
+31. **str_ends_with($str, $sufijo)** – Verifica si termina con un texto (PHP 8+).
+
+32. **addslashes($str)** – Escapa caracteres con barras invertidas.
+
+33. **str_pad($str, $longitud, $relleno, $tipo)** – Rellena una cadena hasta una longitud.
+
+Esta lista incluye funciones más comunes y útiles. PHP tiene muchas más funciones que trabajan con strings en su [documentación oficial](https://www.php.net/manual/es/ref.strings.php).

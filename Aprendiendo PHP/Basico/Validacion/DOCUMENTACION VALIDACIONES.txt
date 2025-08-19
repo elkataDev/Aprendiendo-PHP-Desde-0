@@ -1,0 +1,113 @@
+### MANEJO DE ERRORES Y VALIDACIONES EN PHP
+
+---
+
+## 1. FUNCIONES `is_*()` PARA COMPROBAR TIPOS DE DATOS
+
+| Función        | Valida si...                   | Ejemplo                  |
+| -------------- | ------------------------------ | ------------------------ |
+| `is_int()`     | Es un número entero            | `is_int(10)` → ✅         |
+| `is_float()`   | Es un número decimal           | `is_float(3.14)` → ✅     |
+| `is_numeric()` | Es numérico (entero/decimal)   | `is_numeric("3.14")` → ✅ |
+| `is_string()`  | Es una cadena de texto         | `is_string("hola")` → ✅  |
+| `is_bool()`    | Es booleano (`true` o `false`) | `is_bool(false)` → ✅     |
+| `is_array()`   | Es un array                    | `is_array([])` → ✅       |
+| `is_null()`    | Es `null`                      | `is_null(null)` → ✅      |
+
+---
+
+## 2. `filter_var()` – VALIDACIÓN AVANZADA
+
+Esta función permite validar distintos tipos de datos de forma más específica.
+
+### Ejemplos comunes:
+
+```php
+filter_var($valor, FILTER_VALIDATE_*)
+```
+
+| Validación | Código Ejemplo                               |
+| ---------- | -------------------------------------------- |
+| Email      | `filter_var($email, FILTER_VALIDATE_EMAIL)`  |
+| URL        | `filter_var($url, FILTER_VALIDATE_URL)`      |
+| IP         | `filter_var($ip, FILTER_VALIDATE_IP)`        |
+| Entero     | `filter_var($num, FILTER_VALIDATE_INT)`      |
+| Flotante   | `filter_var($num, FILTER_VALIDATE_FLOAT)`    |
+| Booleano   | `filter_var($bool, FILTER_VALIDATE_BOOLEAN)` |
+
+Esta función retorna el valor validado o `false` si no pasa la validación.
+
+---
+
+## 3. FUNCIONES `ctype_*()` – VALIDACIONES SOBRE STRINGS
+
+Estas funciones solo funcionan con **strings** y verifican si contienen ciertos tipos de caracteres:
+
+| Función         | Valida si...           |
+| --------------- | ---------------------- |
+| `ctype_digit()` | Solo números (dígitos) |
+| `ctype_alpha()` | Solo letras            |
+| `ctype_alnum()` | Letras y números       |
+| `ctype_space()` | Solo espacios          |
+| `ctype_upper()` | Solo letras mayúsculas |
+| `ctype_lower()` | Solo letras minúsculas |
+
+```php
+$valor = "123";
+if (ctype_digit($valor)) {
+    echo "Solo contiene dígitos";
+}
+```
+
+---
+
+## 4. VALIDACIÓN PERSONALIZADA CON `preg_match()` (Expresiones Regulares)
+
+```php
+if (preg_match('/^[0-9]{8}$/', $dni)) {
+    echo "DNI válido de 8 dígitos";
+}
+```
+
+### Ejemplos comunes:
+
+* Contraseña segura (mínimo 8 caracteres, letras y números):
+
+  ```php
+  preg_match('/^[A-Za-z0-9]{8,}$/', $password)
+  ```
+
+* Nombre con solo letras y espacios:
+
+  ```php
+  preg_match('/^[a-zA-Z\s]+$/', $nombre)
+  ```
+
+---
+
+## 5. SANITIZACIÓN CON `FILTER_SANITIZE_*`
+
+Para limpiar entradas antes de validarlas o almacenarlas:
+
+```php
+$nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
+$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+```
+
+---
+
+## EJEMPLO COMPLETO: Validar una edad válida entre 0 y 130
+
+```php
+$edad = readline("Edad: ");
+
+if (filter_var($edad, FILTER_VALIDATE_INT, ["options" => ["min_range" => 0, "max_range" => 130]])) {
+    echo "Edad válida: $edad";
+} else {
+    echo "Edad no válida";
+}
+```
+
+---
+
+Este documento resume las formas más comunes y seguras de validar y limpiar datos en PHP. Puedes combinar varios métodos para cubrir todos los casos posibles y evitar errores o inyecciones de datos.
